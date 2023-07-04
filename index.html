@@ -4,82 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <script>
-        function getComputerChoice() {
-            let computerNumber = Math.random() * 3;
-            if (computerNumber < 1) {
-                return "rock";
-            }
-            if (computerNumber < 2 && computerNumber > 1) {
-                return "paper";
-            }
-            else {
-                return "scissors";
-            }
-        }
-
-        function getPlayerChoice() {
-            let playerInput = prompt("Rock, paper, scissors! What do you choose?");
-            let playerInputLowercase = playerInput.toLowerCase();
-            if (playerInputLowercase == "rock" || playerInputLowercase == "scissors" || playerInputLowercase == "paper") {
-                return playerInputLowercase;
-            }
-            else {
-                return "Pick rock, paper or scissors.";
-            }
-        }
-
-        function playRound() {
-            let computerChoice = getComputerChoice();
-            let playerChoice = getPlayerChoice();
-            if (playerChoice == computerChoice) return "It's a tie!";
-            if (playerChoice == "rock") {
-                if (computerChoice == "paper") {
-                    computerScore += 1;
-                    return "You lose...";
-                }
-                if (computerChoice == "scissors") {
-                    playerScore += 1;
-                    return "You win!";
-                }
-            }
-            if (playerChoice == "paper") {
-                if (computerChoice == "scissors") {
-                    computerScore += 1;
-                    return "You lose...";
-                }
-                if (computerChoice == "rock") {
-                    playerScore += 1;
-                    return "You win!";
-                }
-            }
-            if (playerChoice == "scissors") {
-                if (computerChoice == "paper") {
-                    computerScore += 1;
-                    return "You lose...";
-                }
-                if (computerChoice == "rock") {
-                    playerScore += 1;
-                    return "You win!";
-                }
-            }
-        }
-
-        function game() {
-            for (var i = 0; i < 5; i++) {
-                console.log(playRound());
-            }
-            if (playerScore == computerScore) return "It's a tie! Better luck next time!";
-            if (playerScore > computerScore) return "You won the game of Rock, paper, scissors!!!";
-            else return "You lost to the computer, sorry";
-        }
-        var playerScore = 0;
-        var computerScore = 0; 
-        console.log(game());       
-        console.log(playerScore);
-        console.log(computerScore);   
-    </script>
+<body class="body">
+    <div class="scorecard" id="score">Press a button</div>
+    <div class="playerChoice">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
 </body>
 </html>
